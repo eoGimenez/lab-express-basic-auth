@@ -1,2 +1,15 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div id="userNav">
+{{#if username}}
+  <h2>Your are {{username}} rigth now !</h2>
+{{else}}
+  <h2>You are not connected, join us !!</h2>
+{{/if}}
+</div>
+<div class="anchors">
+<a class="button" href="/user/login">Log In</a>
+<a class="button" href="/user/singin">Create new account</a>
+<a class="button" href="/user/main">Main page</a>
+<a class="button" href="/user/private">Private</a>
+<a class="button" href="/user/logout">Logout!</a>
+</div>

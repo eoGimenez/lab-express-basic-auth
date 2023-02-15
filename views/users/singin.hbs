@@ -1,0 +1,21 @@
+<div id="userNav">
+  <h2>You are not connected, join us !!</h2>
+</div>
+{{#if menssage}}
+  {{menssage}}
+{{/if}}
+<form class="form" action="/user/singin" method="post">
+  <div>
+    <label class="label" for="username" Your user name:></label>
+    <input class="input" type="text" name="username" id="username" />
+    <label class="label" for="password">Your password: </label>
+    <input class="input" type="password" name="password" id="password" />
+    <label class="label" for="passwordConfirm">Confirm your password: </label>
+    <input class="input" type="password" name="passwordConfirm" id="passwordConfirm"/>
+  </div>
+  <button class="btn" type="submit">Create your user!</button>
+</form>
+<div class="anchors">
+  <a class="button" href="/">Home</a>
+  <a class="button" href="/user/login">Already have account ?</a>
+</div>

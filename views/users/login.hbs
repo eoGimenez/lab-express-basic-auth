@@ -1,0 +1,19 @@
+<div id="userNav">
+  <h2>You are not connected, join us !!</h2>
+</div>
+  {{#if menssage}}
+    {{menssage}}
+  {{/if}}
+<form class="form" action="/user/login" method="post">
+<p class="heading">Login</p>  
+  <div>
+    <input class="input" type="text" placeholder="Username" name="username" id="username" />
+    <input class="input" type="password" placeholder="Password" name="password" id="password" />
+  </div>
+  <button class="btn" type="submit">Log in!!</button>
+</form>
+<div class="anchors">
+<a class="button" href="/">Home</a>
+<a class="button" href="/user/singin">Are you not registered ?</a>
+<a class="button" href="/user/private">Private</a>
+</div>

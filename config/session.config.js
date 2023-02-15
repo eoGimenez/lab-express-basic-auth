@@ -1,0 +1,18 @@
+const expressSession = require("express-session");
+const connectMongo = require("connect-mongo");
+
+module.exports = (app) => {
+    app.set("trust proxy", 1);
+    app.use(expressSession({
+        secret: process.env.SESS_SECRET,
+        resave: true,
+        saveUninitialized: false,
+        cookie: {
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+            secure: process.env.NODE_ENV === "production",
+            httpOnly: true,
+            //maxAge: 60000   //temps de vida de la cookie i de l'id (ms)
+        },
+        store: connectMongo.create({mongoUrl:process.env.MONGODB_URI || "mongodb://localhost:27017/auth"})
+    }));
+}
