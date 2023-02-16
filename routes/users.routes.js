@@ -46,18 +46,6 @@ router.get("/logout", isLogged, (req, res, next) => {
       });
 })
 
-router.get("/private", isLogged, (req, res, next) => {
-    //console.log("entra el renderizado de private OK")
-    res.render("users/private", { username : req.session.currentUser });
-})
-
-router.get("/main", isNotLogged, (req, res, next) => {
-    res.render("users/main");
-  })
-  
-router.get("/singin", isNotLogged, (req, res, next) => {
-    res.render("users/singin");
-})
 
 router.post("/singin", isNotLogged, (req, res, next) => {
     let {username, password, passwordConfirm} = req.body;
@@ -89,7 +77,19 @@ router.post("/singin", isNotLogged, (req, res, next) => {
     })
     .catch(err => next(err))
 
+    
+})
+router.get("/private", isLogged, (req, res, next) => {
+    //console.log("entra el renderizado de private OK")
+    res.render("users/private", { username : req.session.currentUser });
+})
 
+router.get("/main", isNotLogged, (req, res, next) => {
+    res.render("users/main");
+  })
+  
+router.get("/singin", isNotLogged, (req, res, next) => {
+    res.render("users/singin");
 })
 
 module.exports = router;
